@@ -32,8 +32,9 @@ function DropdownMenu({ navItems = [] }) {
       <button
         className="inline-flex justify-center w-full rounded-lg border-none bg-white text-black px-8 py-2 focus:outline-none"
         onClick={handleDropdownClick}
+        data-testid={`Dropdown button`}
       >
-        <p>{dropDownOption}</p>
+        <p data-testid={`${dropDownOption}`}>{dropDownOption}</p>
         <FaChevronDown className="ml-2 mt-1" />
       </button>
       <div
@@ -47,8 +48,8 @@ function DropdownMenu({ navItems = [] }) {
               <li
                 key={index}
                 className="text-black hover:bg-primary hover:text-white px-2 py-2 cursor-pointer"
-                data-testid={`list-item-${item.name}`}
                 onClick={() => handleListClick(item)}
+                data-testid={`Dropdown item: ${item.name}`}
               >
                 {item?.name}
               </li>

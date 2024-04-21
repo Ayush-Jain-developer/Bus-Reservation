@@ -2,134 +2,29 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
   bookings: {
-    "2024-04-18": {
+    "2024-05-01": {
       1: {
-        id: nanoid(),
+        id: 1,
         name: "test",
         email: "test@test.com",
       },
       2: {
-        id: nanoid(),
+        id: 2,
         name: "test",
         email: "test@test.com",
       },
       3: {
-        id: nanoid(),
+        id: 3,
         name: "test",
         email: "test@test.com",
       },
       4: {
-        id: nanoid(),
+        id: 4,
         name: "test",
         email: "test@test.com",
       },
-    },
-    "2024-04-19": {
-      1: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      2: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      3: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      4: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-    },
-    "2024-04-20": {
-      1: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      2: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      3: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      4: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-    },
-    "2024-04-21": {
-      1: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      2: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      3: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      4: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-    },
-    "2024-04-22": {
-      1: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      2: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      3: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      4: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-    },
-    "2024-04-23": {
-      1: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      2: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      3: {
-        id: nanoid(),
-        name: "test",
-        email: "test@test.com",
-      },
-      4: {
-        id: nanoid(),
+      5: {
+        id: 5,
         name: "test",
         email: "test@test.com",
       },

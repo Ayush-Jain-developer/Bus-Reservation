@@ -44,9 +44,12 @@ function Deck({
                       : "bg-white hover:bg-primary hover:text-white"
                   }`}
                   onClick={() => handleSeatOnClick(seat)}
+                  data-testid={seat}
                 >
                   <div className="w-100 flex justify-center items-center">
-                    <p className="w-50 text-secondary">{seat}</p>
+                    <p className="w-50 text-secondary" data-testid={"seat1"}>
+                      {seat}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -64,7 +67,10 @@ function Deck({
                   }`}
                   onClick={() => handleSeatOnClick(seat)}
                 >
-                  <div className="w-100 flex justify-center items-center">
+                  <div
+                    className="w-100 flex justify-center items-center"
+                    data-testid={"seat2"}
+                  >
                     {seat}
                   </div>
                 </div>
@@ -84,6 +90,7 @@ function Deck({
                     : "bg-white hover:bg-primary hover:text-white"
                 }`}
                 onClick={() => handleSeatOnClick(isLowerDeck ? 19 : 39)}
+                data-testid={"seat3"}
               >
                 {isLowerDeck ? 19 : 39}
               </p>
@@ -96,6 +103,7 @@ function Deck({
                     : "bg-white hover:bg-primary hover:text-white"
                 }`}
                 onClick={() => handleSeatOnClick(isLowerDeck ? 20 : 40)}
+                data-testid={"seat4"}
               >
                 {isLowerDeck ? 20 : 40}
               </p>

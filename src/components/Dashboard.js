@@ -182,20 +182,31 @@ function Dashboard() {
         <table className="table-auto border-collapse">
           <thead className="bg-primary">
             <tr className="text-white">
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Email</th>
-              <th className="px-4 py-2">Date of Booking</th>
-              <th className="px-4 py-2">Seat Number</th>
-              <th className="px-4 py-2">Actions</th>
+              <th className="px-4 py-2" data-testid={"name"}>
+                Name
+              </th>
+              <th className="px-4 py-2" data-testid={"email"}>
+                Email
+              </th>
+              <th className="px-4 py-2" data-testid={"date"}>
+                Date of Booking
+              </th>
+              <th className="px-4 py-2" data-testid={"seat"}>
+                Seat Number
+              </th>
+              <th className="px-4 py-2" data-testid={"actions"}>
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>
-            {paginationData.map((item) => {
+            {paginationData.map((item, i) => {
               return (
-                <tr key={item.id}>
+                <tr key={item.id} data-testid={"row"}>
                   <td className="px-4 py-2">
                     {editable && selectedBookingID === item.id ? (
                       <input
+                        data-testid={`nameEdit`}
                         ref={references.nameRef}
                         type="text"
                         defaultValue={item.name}
@@ -205,12 +216,15 @@ function Dashboard() {
                       item.name
                     )}
                     {error.nameError && selectedBookingID === item.id && (
-                      <p className="text-error">Name is required</p>
+                      <p className="text-error" data-testid={"nameError"}>
+                        Name is required
+                      </p>
                     )}
                   </td>
                   <td className="px-4 py-2" onChange={handleEmailChange}>
                     {editable && selectedBookingID === item.id ? (
                       <input
+                        data-testid={`emailEdit`}
                         ref={references.emailRef}
                         type="email"
                         defaultValue={item.email}
@@ -221,7 +235,9 @@ function Dashboard() {
                     )}
                     {error.dashboardEmailError &&
                       selectedBookingID === item.id && (
-                        <p className="text-error">Please enter a valid email</p>
+                        <p className="text-error" data-testid={"emailError"}>
+                          Please enter a valid email
+                        </p>
                       )}
                   </td>
                   <td
@@ -230,6 +246,7 @@ function Dashboard() {
                   >
                     {editable && selectedBookingID === item.id ? (
                       <input
+                        data-testid={`dateEdit`}
                         ref={references.dateRef}
                         type="date"
                         min={minDate}
@@ -240,7 +257,7 @@ function Dashboard() {
                       item.dateOfBooking
                     )}
                     {error.dateError && selectedBookingID === item.id && (
-                      <p className="text-error">
+                      <p className="text-error" data-testid={"dateError"}>
                         Seat already booked for the selected date
                       </p>
                     )}
@@ -252,6 +269,7 @@ function Dashboard() {
                         <ImCancelCircle
                           className="cursor-pointer"
                           onClick={handleCancelEdit}
+                          data-testid={"cancelEdit"}
                         />
                         <FaCheck
                           className={`cursor-pointer ${
@@ -260,6 +278,7 @@ function Dashboard() {
                               : ""
                           }`}
                           onClick={() => handleConfirmButton(item.id)}
+                          data-testid={"confirmEdit"}
                         />
                       </>
                     ) : (
@@ -267,10 +286,12 @@ function Dashboard() {
                         <MdEdit
                           className="cursor-pointer"
                           onClick={() => handleEditButton(item.id)}
+                          data-testid={`edit ${i + 1}`}
                         />
                         <MdDelete
                           className="cursor-pointer"
                           onClick={() => handleDeleteButton(item.id)}
+                          data-testid={`delete ${i + 1}`}
                         />
                       </>
                     )}
@@ -279,13 +300,17 @@ function Dashboard() {
                         <div className="fixed inset-0 bg-black opacity-50"></div>
 
                         <div className="relative bg-white p-8 rounded shadow-lg">
-                          <h2 className="text-lg font-semibold mb-4">
+                          <h2
+                            className="text-lg font-semibold mb-4"
+                            data-testid={"sure"}
+                          >
                             Are you sure you want to delete?
                           </h2>
                           <div className="flex justify-center">
                             <button
                               className="px-4 py-2 mr-2 bg-red-500 text-error rounded hover:bg-red-600"
                               onClick={handleConfirmDelete}
+                              data-testid={`confirmDelete`}
                             >
                               Delete
                             </button>
@@ -293,6 +318,7 @@ function Dashboard() {
                             <button
                               className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
                               onClick={() => setRemoveBooking(false)}
+                              data-testid={"cancel"}
                             >
                               Cancel
                             </button>
@@ -311,6 +337,7 @@ function Dashboard() {
         <p
           className={`mr-6 ${pagination.pageNumber !== 1 && "cursor-pointer"}`}
           onClick={handlePreviousPage}
+          data-testid={"back"}
         >
           {"<"}
         </p>
@@ -322,6 +349,7 @@ function Dashboard() {
                 pagination.pageNumber === page && "text-primary"
               }`}
               onClick={() => handlePageChange(page)}
+              data-testid={"page"}
             >
               {page}
             </p>
@@ -332,6 +360,7 @@ function Dashboard() {
             pagination.pageNumber !== totalPages && "cursor-pointer"
           }`}
           onClick={handleNextPage}
+          data-testid={"forward"}
         >
           {">"}
         </p>
